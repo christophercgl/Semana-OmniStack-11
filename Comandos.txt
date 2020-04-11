@@ -1,0 +1,69 @@
+code . // abre no vs code	
+
+
+Backend Node.JS
+
+-- criar package.json
+	- npm init -y | na pasta do projeto 
+-- adicionar o express para controle de rota no node
+	- npm install express
+
+
+Front React
+
+-- criar projeto com React | npx vem com npm do node
+	-  npx create-react-app frontend
+
+-- para executar
+	- npm start ou npm run start
+	# se der pau na h de executar, deleta a pasta node_modules do projeto e executa
+	# npm install novamente
+
+	# Se der erro `system limit for number of file watchers reached watch`
+	# executa esse comandos abaixo:
+
+		#echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+		#cat /proc/sys/fs/inotify/max_user_watches
+		#fs.inotify.max_user_watches=524288
+
+-- Ferramenta para não ter que ficar atualizando e startando o node
+	- npm install nodemon -D | -D salva o nodemon no packege.jon como dependencia de desenvolvimento
+
+	- Para conf o nodemon
+		- altera no package.json: 
+			"test": "echo \"Error: no test specified\" && exit 1"  para
+			"start": "nodemon index.js"
+		- depois para executar:
+			npm start
+
+-- Query Builder pra usar o banco
+	- npm install knex
+	- npm install sqlite3 | npm install mysql | npm install pg
+	- Criar conexão do banco
+		- npx knex init
+
+
+	- migrations mantem um historico das alteração do banco
+		-	criar arquivo para edidar o banco com migrate:
+			- npx knex migrate:make create_ongs
+			-- executar o arquivo:
+				-	npx knex migrate:latest
+			-- caso queira dar rollback no arquivo, executar o down
+				-	npx knex migrate:rollback
+
+-- install cors - control quem pode acessar a aplicação
+	- npm install cors
+
+
+
+#### Front
+
+-- instalar pacotes no react icones
+	-	npm install react-icons
+
+-- instalar parte de rotas no react 
+	-	npm install react-router-dom
+
+
+|-- Para conectar o back com o front é necessario instalar um cliente http.
+	-	npm install axios
